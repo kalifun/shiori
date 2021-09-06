@@ -3,10 +3,10 @@ module github.com/kalifun/shiori
 go 1.12
 
 require (
-	github.com/PuerkitoBio/goquery v1.5.0
+	github.com/PuerkitoBio/goquery v1.7.1
 	github.com/disintegration/imaging v1.6.0
 	github.com/fatih/color v1.7.0
-	github.com/go-shiori/dom v0.0.0-20190930082056-9d974a4f8b25
+	github.com/go-shiori/dom v0.0.0-20210627111528-4e4722cd0d65
 	github.com/go-shiori/go-readability v0.0.0-20190809152430-5413e9c4ec86
 	github.com/go-shiori/warc v0.0.0-20200621032813-359908319d1d
 	github.com/go-sql-driver/mysql v1.4.1
@@ -28,7 +28,7 @@ require (
 	go.etcd.io/bbolt v1.3.3
 	golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4
 	golang.org/x/image v0.0.0-20190802002840-cff245a6509b // indirect
-	golang.org/x/net v0.0.0-20190926025831-c00fd9afed17
+	golang.org/x/net v0.0.0-20210614182718-04defd469f4e
 	golang.org/x/tools v0.0.0-20190809145639-6d4652c779c4 // indirect
 	google.golang.org/appengine v1.6.1 // indirect
 )

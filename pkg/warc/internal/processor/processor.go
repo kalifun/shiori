@@ -118,6 +118,21 @@ func cleanURL(url *nurl.URL) {
 		}
 	}
 
+	rawQuery := []string{}
+	fmt.Println(queries)
+	for k, v := range queries {
+		isEmpty := false
+		for _, val := range v {
+			if val == "" {
+				isEmpty = true
+			}
+		}
+		if isEmpty {
+			newV := nurl.Values{k: v}
+			rawQuery = append(rawQuery, strings.TrimRight(newV.Encode(), "="))
+		}
+	}
+
 	url.Fragment = ""
-	url.RawQuery = queries.Encode()
+	url.RawQuery = strings.Join(rawQuery, "")
 }
