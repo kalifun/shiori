@@ -13,7 +13,7 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/go-shiori/shiori/internal/model"
+	"github.com/kalifun/shiori/internal/model"
 	"github.com/go-shiori/warc"
 	"github.com/julienschmidt/httprouter"
 )

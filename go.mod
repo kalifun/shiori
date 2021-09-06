@@ -1,4 +1,4 @@
-module github.com/go-shiori/shiori
+module github.com/kalifun/shiori
 
 go 1.12
 

@@ -6,8 +6,8 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/go-shiori/shiori/internal/core"
-	"github.com/go-shiori/shiori/internal/model"
+	"github.com/kalifun/shiori/internal/core"
+	"github.com/kalifun/shiori/internal/model"
 	"github.com/spf13/cobra"
 )
 

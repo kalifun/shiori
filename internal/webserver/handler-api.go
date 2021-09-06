@@ -13,9 +13,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/go-shiori/shiori/internal/core"
-	"github.com/go-shiori/shiori/internal/database"
-	"github.com/go-shiori/shiori/internal/model"
+	"github.com/kalifun/shiori/internal/core"
+	"github.com/kalifun/shiori/internal/database"
+	"github.com/kalifun/shiori/internal/model"
 	"github.com/gofrs/uuid"
 	"github.com/julienschmidt/httprouter"
 	"golang.org/x/crypto/bcrypt"

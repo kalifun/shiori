@@ -3,7 +3,7 @@ package cmd
 import (
 	"strings"
 
-	"github.com/go-shiori/shiori/internal/webserver"
+	"github.com/kalifun/shiori/internal/webserver"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
