@@ -91,17 +91,17 @@ func createAbsoluteURL(uri string, base *nurl.URL) string {
 		return uri
 	}
 
+	// Otherwise, resolve against base URI.
+	tmp, err := nurl.Parse(uri)
+	if tmp.Fragment != "" && err != nil {
+		return uri
+	}
+
 	// If it is already an absolute URL, return as it is
-	tmp, err := nurl.ParseRequestURI(uri)
+	tmp, err = nurl.ParseRequestURI(uri)
 	if err == nil && tmp.Scheme != "" && tmp.Hostname() != "" {
 		cleanURL(tmp)
 		return tmp.String()
-	}
-
-	// Otherwise, resolve against base URI.
-	tmp, err = nurl.Parse(uri)
-	if err != nil {
-		return uri
 	}
 
 	cleanURL(tmp)
