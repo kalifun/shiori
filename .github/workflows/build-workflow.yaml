@@ -1,0 +1,37 @@
+name: build workflow
+
+on:
+  release:
+    types: [published]
+jobs:
+  release:
+      name: Release on GitHub
+      runs-on: ubuntu-latest
+      steps:
+        - name: Check out code
+          uses: actions/checkout@v1
+        - name: Validates GO releaser config
+          uses: docker://goreleaser/goreleaser:latest
+          with:
+            args: check
+        - name: Create release on GitHub
+          uses: docker://goreleaser/goreleaser:latest
+          with:
+            args: release
+          env:
+            GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+  build:
+      runs-on: ubuntu-latest
+      name: Build image job
+      steps:
+        - name: Checkout master
+          uses: actions/checkout@master
+        - name: Build and publish image
+          uses: ilteoood/docker_buildx@master
+          with:
+            publish: true
+            imageName: kalifun/shiori
+            platform: linux/amd64,linux/arm64,linux/arm/v7 # 你准备构建的镜像平台
+            tag: latest # 默认latest，可以针对平台，修改tag
+            dockerHubUser: ${{ secrets.DOCKER_USERNAME }} # docker hub userid
+            dockerHubPassword: ${{ secrets.DOCKER_PASSWORD }} # docker hub password
