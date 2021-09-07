@@ -93,8 +93,13 @@ func createAbsoluteURL(uri string, base *nurl.URL) string {
 
 	// Otherwise, resolve against base URI.
 	tmp, err := nurl.Parse(uri)
-	if tmp.Fragment != "" && err != nil {
-		return uri
+	if err != nil {
+		if tmp.Fragment != "" {
+			return uri
+		}
+	} else {
+		// Unqualified uri
+		return ""
 	}
 
 	// If it is already an absolute URL, return as it is
@@ -119,7 +124,6 @@ func cleanURL(url *nurl.URL) {
 	}
 
 	rawQuery := []string{}
-	fmt.Println(queries)
 	for k, v := range queries {
 		isEmpty := false
 		for _, val := range v {
