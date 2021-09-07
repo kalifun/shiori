@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/go-shiori/shiori/internal/database"
+	"github.com/kalifun/shiori/internal/database"
 	"github.com/spf13/cobra"
 )
 

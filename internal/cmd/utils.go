@@ -12,7 +12,7 @@ import (
 	"unicode/utf8"
 
 	"github.com/fatih/color"
-	"github.com/go-shiori/shiori/internal/model"
+	"github.com/kalifun/shiori/internal/model"
 	"golang.org/x/crypto/ssh/terminal"
 )
 

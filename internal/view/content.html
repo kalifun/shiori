@@ -18,9 +18,15 @@
 	<link href="css/stylesheet.css" rel="stylesheet">
 	<link href="css/custom-dialog.css" rel="stylesheet">
 	<link href="css/bookmark-item.css" rel="stylesheet">
-
+	<link href="css/idea.min.css" rel="stylesheet">
+	<link href="css/code.css" rel="stylesheet">
+	<script src="js/highlight.min.js"></script>
 	<script src="js/dayjs.min.js"></script>
 	<script src="js/vue.min.js"></script>
+	<script>
+		hljs.highlightAll();
+		hljs.highlightBlock(document.querySelectorAll('pre code'))
+	</script>
 </head>
 
 <body class="night">
@@ -77,7 +83,6 @@
 			},
 			mounted() {
 				this.loadSetting();
-
 				document.querySelectorAll("#content a").forEach(elem => {
 					elem.setAttribute("target", "_blank");
 					elem.setAttribute("rel", "noopener");
