@@ -85,15 +85,19 @@ func createAbsoluteURL(uri string, base *nurl.URL) string {
 	if uri == "" || base == nil {
 		return ""
 	}
-
 	// If it is hash tag, return as it is
 	if uri[:1] == "#" {
 		return uri
 	}
 
+	// jianshu Does not exist http:
+	if len(uri) > 2 && uri[:2] == "//" {
+		uri = base.Scheme + ":" + uri
+	}
+
 	// Otherwise, resolve against base URI.
 	tmp, err := nurl.Parse(uri)
-	if err != nil {
+	if err == nil {
 		if tmp.Fragment != "" {
 			return uri
 		}
@@ -109,6 +113,10 @@ func createAbsoluteURL(uri string, base *nurl.URL) string {
 		return tmp.String()
 	}
 
+	// tmp is nil return ""
+	if tmp == nil {
+		return ""
+	}
 	cleanURL(tmp)
 	return base.ResolveReference(tmp).String()
 }
